@@ -1,0 +1,8 @@
+Name,Resource Type,Resource ID,Severity,Details,Recommendation,Status
+S3 Bucket Allows Public Access,aws_s3_bucket,demo-public-bucket,High,The S3 bucket is configured with public access enabled.,Disable public access unless there is a documented business requirement.,Open
+S3 Bucket Missing Encryption,aws_s3_bucket,demo-public-bucket,Medium,The S3 bucket does not have encryption enabled.,Enable server-side encryption for stored objects.,Open
+S3 Bucket Logging Disabled,aws_s3_bucket,demo-public-bucket,Low,The S3 bucket does not have access logging enabled.,Enable access logging for monitoring and investigation.,Open
+Security Group Exposes SSH to the Internet,aws_security_group,demo-web-security-group,High,TCP port 22 is open to 0.0.0.0/0.,Restrict access to trusted IP ranges VPN or private networks.,Open
+IAM Policy Allows Full Administrative Access,aws_iam_policy,demo-admin-policy,Critical,The IAM policy allows all actions on all resources.,Apply least privilege and replace wildcard permissions with specific required actions and resources.,Open
+Database Instance Publicly Accessible,aws_rds_instance,demo-database,High,The database instance is configured as publicly accessible.,Disable public accessibility and place the database in a private subnet.,Open
+Database Encryption Disabled,aws_rds_instance,demo-database,Medium,The database instance does not have encryption enabled.,Enable encryption at rest for the database.,Open
