@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Security Misconfiguration Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cloud Security Misconfiguration Report</h1>
+
+    <p><strong>Generated At:</strong> 2026-06-21T06:01:00.385850+00:00</p>
+    <p><strong>Total Configs:</strong> 4</p>
+    <p><strong>Total Findings:</strong> 11</p>
+    <p><strong>Risk Score:</strong> 71</p>
+    <p><strong>Overall Risk Level:</strong> Critical</p>
+
+    <h2>Findings</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Resource Type</th>
+        <th>Resource ID</th>
+        <th>Severity</th>
+        <th>Details</th>
+        <th>Recommendation</th>
+        <th>Status</th>
+      </tr>
+      
+        <tr>
+          <td>IAM Policy Allows Full Administrative Access</td>
+          <td>aws_iam_policy</td>
+          <td>demo-admin-policy</td>
+          <td>Critical</td>
+          <td>The IAM policy allows all actions on all resources.</td>
+          <td>Apply least privilege and replace wildcard permissions with specific required actions and resources.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Database Instance Publicly Accessible</td>
+          <td>aws_rds_instance</td>
+          <td>demo-database</td>
+          <td>High</td>
+          <td>The database instance is configured as publicly accessible.</td>
+          <td>Disable public accessibility and place the database in a private subnet.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Database Encryption Disabled</td>
+          <td>aws_rds_instance</td>
+          <td>demo-database</td>
+          <td>Medium</td>
+          <td>The database instance does not have encryption enabled.</td>
+          <td>Enable encryption at rest for the database.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Database Backups Disabled</td>
+          <td>aws_rds_instance</td>
+          <td>demo-database</td>
+          <td>Medium</td>
+          <td>The database instance does not have backups enabled.</td>
+          <td>Enable automated backups according to recovery requirements.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Database Deletion Protection Disabled</td>
+          <td>aws_rds_instance</td>
+          <td>demo-database</td>
+          <td>Low</td>
+          <td>The database instance does not have deletion protection enabled.</td>
+          <td>Enable deletion protection for production or critical databases.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>S3 Bucket Allows Public Access</td>
+          <td>aws_s3_bucket</td>
+          <td>demo-public-bucket</td>
+          <td>High</td>
+          <td>The S3 bucket is configured with public access enabled.</td>
+          <td>Disable public access unless there is a documented business requirement.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>S3 Bucket Missing Encryption</td>
+          <td>aws_s3_bucket</td>
+          <td>demo-public-bucket</td>
+          <td>Medium</td>
+          <td>The S3 bucket does not have encryption enabled.</td>
+          <td>Enable server-side encryption for stored objects.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>S3 Bucket Logging Disabled</td>
+          <td>aws_s3_bucket</td>
+          <td>demo-public-bucket</td>
+          <td>Low</td>
+          <td>The S3 bucket does not have access logging enabled.</td>
+          <td>Enable access logging for monitoring and investigation.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>S3 Bucket Versioning Disabled</td>
+          <td>aws_s3_bucket</td>
+          <td>demo-public-bucket</td>
+          <td>Low</td>
+          <td>The S3 bucket does not have versioning enabled.</td>
+          <td>Enable versioning to help protect against accidental deletion or overwrite.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Security Group Exposes SSH to the Internet</td>
+          <td>aws_security_group</td>
+          <td>demo-web-security-group</td>
+          <td>High</td>
+          <td>TCP port 22 is open to 0.0.0.0/0.</td>
+          <td>Restrict access to trusted IP ranges, VPN, or private networks.</td>
+          <td>Open</td>
+        </tr>
+        
+        <tr>
+          <td>Security Group Allows Public Inbound Access</td>
+          <td>aws_security_group</td>
+          <td>demo-web-security-group</td>
+          <td>Medium</td>
+          <td>TCP port 443 is open to 0.0.0.0/0.</td>
+          <td>Confirm that public access is required and restrict scope where possible.</td>
+          <td>Open</td>
+        </tr>
+        
+    </table>
+  </div>
+</body>
+</html>

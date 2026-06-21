@@ -1,0 +1,15 @@
+{
+  "resource_type": "aws_iam_policy",
+  "resource_id": "demo-admin-policy",
+  "statements": [
+    {
+      "effect": "Allow",
+      "actions": [
+        "*"
+      ],
+      "resources": [
+        "*"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: Python Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  python-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check Python syntax
+        run: python -m py_compile src/cloud_config_checker.py
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests
+
+      - name: Run cloud config checker
+        run: python src/cloud_config_checker.py --input sample_configs --output reports --format all

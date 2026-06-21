@@ -1,0 +1,18 @@
+{
+  "resource_type": "aws_security_group",
+  "resource_id": "demo-web-security-group",
+  "rules": [
+    {
+      "protocol": "tcp",
+      "port": 22,
+      "cidr": "0.0.0.0/0",
+      "description": "SSH open to the internet"
+    },
+    {
+      "protocol": "tcp",
+      "port": 443,
+      "cidr": "0.0.0.0/0",
+      "description": "HTTPS public access"
+    }
+  ]
+}

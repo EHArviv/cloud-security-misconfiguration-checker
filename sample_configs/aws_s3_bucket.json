@@ -1,0 +1,8 @@
+{
+  "resource_type": "aws_s3_bucket",
+  "resource_id": "demo-public-bucket",
+  "public_access": true,
+  "encryption_enabled": false,
+  "logging_enabled": false,
+  "versioning_enabled": false
+}

@@ -1,0 +1,118 @@
+{
+  "tool_name": "Cloud Security Misconfiguration Checker",
+  "generated_at": "2026-06-21T06:01:00.385850+00:00",
+  "summary": {
+    "total_configs": 4,
+    "total_findings": 11,
+    "risk_score": 71,
+    "overall_risk_level": "Critical",
+    "severity_counts": {
+      "Critical": 1,
+      "High": 3,
+      "Medium": 4,
+      "Low": 3,
+      "Info": 0
+    }
+  },
+  "findings": [
+    {
+      "name": "IAM Policy Allows Full Administrative Access",
+      "resource_type": "aws_iam_policy",
+      "resource_id": "demo-admin-policy",
+      "severity": "Critical",
+      "details": "The IAM policy allows all actions on all resources.",
+      "recommendation": "Apply least privilege and replace wildcard permissions with specific required actions and resources.",
+      "status": "Open"
+    },
+    {
+      "name": "Database Instance Publicly Accessible",
+      "resource_type": "aws_rds_instance",
+      "resource_id": "demo-database",
+      "severity": "High",
+      "details": "The database instance is configured as publicly accessible.",
+      "recommendation": "Disable public accessibility and place the database in a private subnet.",
+      "status": "Open"
+    },
+    {
+      "name": "Database Encryption Disabled",
+      "resource_type": "aws_rds_instance",
+      "resource_id": "demo-database",
+      "severity": "Medium",
+      "details": "The database instance does not have encryption enabled.",
+      "recommendation": "Enable encryption at rest for the database.",
+      "status": "Open"
+    },
+    {
+      "name": "Database Backups Disabled",
+      "resource_type": "aws_rds_instance",
+      "resource_id": "demo-database",
+      "severity": "Medium",
+      "details": "The database instance does not have backups enabled.",
+      "recommendation": "Enable automated backups according to recovery requirements.",
+      "status": "Open"
+    },
+    {
+      "name": "Database Deletion Protection Disabled",
+      "resource_type": "aws_rds_instance",
+      "resource_id": "demo-database",
+      "severity": "Low",
+      "details": "The database instance does not have deletion protection enabled.",
+      "recommendation": "Enable deletion protection for production or critical databases.",
+      "status": "Open"
+    },
+    {
+      "name": "S3 Bucket Allows Public Access",
+      "resource_type": "aws_s3_bucket",
+      "resource_id": "demo-public-bucket",
+      "severity": "High",
+      "details": "The S3 bucket is configured with public access enabled.",
+      "recommendation": "Disable public access unless there is a documented business requirement.",
+      "status": "Open"
+    },
+    {
+      "name": "S3 Bucket Missing Encryption",
+      "resource_type": "aws_s3_bucket",
+      "resource_id": "demo-public-bucket",
+      "severity": "Medium",
+      "details": "The S3 bucket does not have encryption enabled.",
+      "recommendation": "Enable server-side encryption for stored objects.",
+      "status": "Open"
+    },
+    {
+      "name": "S3 Bucket Logging Disabled",
+      "resource_type": "aws_s3_bucket",
+      "resource_id": "demo-public-bucket",
+      "severity": "Low",
+      "details": "The S3 bucket does not have access logging enabled.",
+      "recommendation": "Enable access logging for monitoring and investigation.",
+      "status": "Open"
+    },
+    {
+      "name": "S3 Bucket Versioning Disabled",
+      "resource_type": "aws_s3_bucket",
+      "resource_id": "demo-public-bucket",
+      "severity": "Low",
+      "details": "The S3 bucket does not have versioning enabled.",
+      "recommendation": "Enable versioning to help protect against accidental deletion or overwrite.",
+      "status": "Open"
+    },
+    {
+      "name": "Security Group Exposes SSH to the Internet",
+      "resource_type": "aws_security_group",
+      "resource_id": "demo-web-security-group",
+      "severity": "High",
+      "details": "TCP port 22 is open to 0.0.0.0/0.",
+      "recommendation": "Restrict access to trusted IP ranges, VPN, or private networks.",
+      "status": "Open"
+    },
+    {
+      "name": "Security Group Allows Public Inbound Access",
+      "resource_type": "aws_security_group",
+      "resource_id": "demo-web-security-group",
+      "severity": "Medium",
+      "details": "TCP port 443 is open to 0.0.0.0/0.",
+      "recommendation": "Confirm that public access is required and restrict scope where possible.",
+      "status": "Open"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+Cloud Security Misconfiguration Summary
+=======================================
+
+Generated At: 2026-06-21T06:01:00.385850+00:00
+Total Configs: 4
+Total Findings: 11
+Risk Score: 71
+Overall Risk Level: Critical
+
+Severity Counts
+---------------
+Critical: 1
+High: 3
+Medium: 4
+Low: 3
+Info: 0
+
+Findings
+--------
+
+Name: IAM Policy Allows Full Administrative Access
+Resource Type: aws_iam_policy
+Resource ID: demo-admin-policy
+Severity: Critical
+Details: The IAM policy allows all actions on all resources.
+Recommendation: Apply least privilege and replace wildcard permissions with specific required actions and resources.
+Status: Open
+
+Name: Database Instance Publicly Accessible
+Resource Type: aws_rds_instance
+Resource ID: demo-database
+Severity: High
+Details: The database instance is configured as publicly accessible.
+Recommendation: Disable public accessibility and place the database in a private subnet.
+Status: Open
+
+Name: Database Encryption Disabled
+Resource Type: aws_rds_instance
+Resource ID: demo-database
+Severity: Medium
+Details: The database instance does not have encryption enabled.
+Recommendation: Enable encryption at rest for the database.
+Status: Open
+
+Name: Database Backups Disabled
+Resource Type: aws_rds_instance
+Resource ID: demo-database
+Severity: Medium
+Details: The database instance does not have backups enabled.
+Recommendation: Enable automated backups according to recovery requirements.
+Status: Open
+
+Name: Database Deletion Protection Disabled
+Resource Type: aws_rds_instance
+Resource ID: demo-database
+Severity: Low
+Details: The database instance does not have deletion protection enabled.
+Recommendation: Enable deletion protection for production or critical databases.
+Status: Open
+
+Name: S3 Bucket Allows Public Access
+Resource Type: aws_s3_bucket
+Resource ID: demo-public-bucket
+Severity: High
+Details: The S3 bucket is configured with public access enabled.
+Recommendation: Disable public access unless there is a documented business requirement.
+Status: Open
+
+Name: S3 Bucket Missing Encryption
+Resource Type: aws_s3_bucket
+Resource ID: demo-public-bucket
+Severity: Medium
+Details: The S3 bucket does not have encryption enabled.
+Recommendation: Enable server-side encryption for stored objects.
+Status: Open
+
+Name: S3 Bucket Logging Disabled
+Resource Type: aws_s3_bucket
+Resource ID: demo-public-bucket
+Severity: Low
+Details: The S3 bucket does not have access logging enabled.
+Recommendation: Enable access logging for monitoring and investigation.
+Status: Open
+
+Name: S3 Bucket Versioning Disabled
+Resource Type: aws_s3_bucket
+Resource ID: demo-public-bucket
+Severity: Low
+Details: The S3 bucket does not have versioning enabled.
+Recommendation: Enable versioning to help protect against accidental deletion or overwrite.
+Status: Open
+
+Name: Security Group Exposes SSH to the Internet
+Resource Type: aws_security_group
+Resource ID: demo-web-security-group
+Severity: High
+Details: TCP port 22 is open to 0.0.0.0/0.
+Recommendation: Restrict access to trusted IP ranges, VPN, or private networks.
+Status: Open
+
+Name: Security Group Allows Public Inbound Access
+Resource Type: aws_security_group
+Resource ID: demo-web-security-group
+Severity: Medium
+Details: TCP port 443 is open to 0.0.0.0/0.
+Recommendation: Confirm that public access is required and restrict scope where possible.
+Status: Open

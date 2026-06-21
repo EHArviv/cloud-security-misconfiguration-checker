@@ -1,0 +1,8 @@
+{
+  "resource_type": "aws_rds_instance",
+  "resource_id": "demo-database",
+  "publicly_accessible": true,
+  "encryption_enabled": false,
+  "backup_enabled": false,
+  "deletion_protection": false
+}
